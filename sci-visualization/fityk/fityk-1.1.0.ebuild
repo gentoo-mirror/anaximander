@@ -9,23 +9,20 @@ WX_GTK_VER="2.9"
 PYTHON_DEPEND="python? 2"
 SUPPORT_PYTHON_ABIS="1"
 
-RESTRICT="fetch"
-
-inherit python wxwidgets autotools
+inherit python wxwidgets autotools git
 
 DESCRIPTION="General-purpose nonlinear curve fitting and data analysis"
 HOMEPAGE="http://fityk.nieto.pl/"
-SRC_URI="${P}.tar.gz"
-S="${WORKDIR}/wojdyr-fityk-692b497"
-SRC_LINK="https://github.com/wojdyr/fityk/tarball/v${PV}"
+EGIT_REPO_URI="https://github.com/wojdyr/fityk.git"
+EGIT_COMMIT="d183048b18045f4bf823770d62211dd90a1bc285"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc gnuplot lua readline python static-libs wxwidgets"
+IUSE="doc gnuplot readline python static-libs wxwidgets"
 
 CDEPEND=">=sci-libs/xylib-0.8
-	lua? ( dev-lang/lua )
+	dev-lang/lua
 	readline? ( sys-libs/readline )
 	wxwidgets? ( >=x11-libs/wxGTK-2.9.2 )"
 
@@ -37,12 +34,6 @@ RDEPEND="${CDEPEND}
 	gnuplot? ( sci-visualization/gnuplot )"
 
 RESTRICT_PYTHON_ABIS="3.*"
-
-pkg_nofetch() {
-	einfo "Please download"
-	einfo " source archive - ${SRC_LINK}"
-	einfo "from ${HOMEPAGE} and place it in ${DISTDIR} as ${SRC_URI}"
-}
 
 src_prepare() {
 	eautoreconf
@@ -61,7 +52,6 @@ src_configure() {
 	econf  \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--disable-xyconvert \
-		$(use_enable lua) \
 		$(use_enable python) \
 		$(use_enable static-libs static) \
 		$(use_enable wxwidgets GUI) \
