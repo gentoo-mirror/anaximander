@@ -39,7 +39,6 @@ DEPEND="${RDEPEND}
 	app-text/rarian"
 
 src_configure() {
-	epatch "${FILESDIR}/referencer-datadir.patch"
 	econf --disable-update-mime-database --enable-python
 }
 
