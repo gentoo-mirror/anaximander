@@ -24,7 +24,7 @@ IUSE="doc gnuplot readline python static-libs wxwidgets"
 CDEPEND=">=sci-libs/xylib-0.8
 	dev-lang/lua
 	readline? ( sys-libs/readline )
-	wxwidgets? ( >=x11-libs/wxGTK-2.9.2 )"
+	wxwidgets? ( >=x11-libs/wxGTK-2.9.2:2.9 )"
 
 DEPEND="${CDEPEND}
 	dev-libs/boost
