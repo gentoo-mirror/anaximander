@@ -9,7 +9,7 @@ WX_GTK_VER="2.9"
 PYTHON_DEPEND="python? 2"
 SUPPORT_PYTHON_ABIS="1"
 
-inherit python wxwidgets autotools git
+inherit python wxwidgets autotools git-2
 
 DESCRIPTION="General-purpose nonlinear curve fitting and data analysis"
 HOMEPAGE="http://fityk.nieto.pl/"
