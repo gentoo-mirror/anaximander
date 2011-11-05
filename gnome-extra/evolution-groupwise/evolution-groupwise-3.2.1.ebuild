@@ -3,11 +3,10 @@
 # $Header: $
 
 EAPI="4"
-GNOME_TARBALL_SUFFIX="xz"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
-inherit gnome2 
+inherit gnome2
 
 DESCRIPTION="Evolution module for connecting to Novell Groupwise"
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
