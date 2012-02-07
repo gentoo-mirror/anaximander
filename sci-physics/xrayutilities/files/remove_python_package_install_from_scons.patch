@@ -1,0 +1,12 @@
+--- SConstruct.orig	2012-02-07 12:25:03.003760494 +0100
++++ SConstruct	2012-02-07 12:25:25.295306777 +0100
+@@ -56,9 +56,6 @@
+     fid.write("[xrutils]\n")
+     fid.write("clib_path = %s\n" %libpath)
+     fid.close()
+-    #run python installer
+-    python_installer = subprocess.Popen("python setup.py install --home="+os.path.join(env['DESTDIR'],env['PREFIX']),shell=True)
+-    python_installer.wait()
+ 
+ ############################
+ #    config like things
