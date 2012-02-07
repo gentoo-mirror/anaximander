@@ -9,9 +9,7 @@ inherit eutils scons-utils distutils git-2
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
 HOMEPAGE="http://sourceforge.net/projects/xrayutilities"
-#SRC_URI="http://sourceforge.net/p/xrayutilities/code/"
-#EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
-EGIT_REPO_URI="file://localhost/home/dk/devel/xrutils"
+EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
 
 LICENSE="GPL-2"
 SLOT="0"
