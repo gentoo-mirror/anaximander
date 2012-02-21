@@ -31,7 +31,7 @@ src_compile() {
 
 src_install() {
     # install c-library using patched SConstruct
-    escons DESTDIR="${D}" --prefix=usr install
+    escons DESTDIR="${D}" install
 	# install python package to system python folder
     distutils_src_install
 }
