@@ -2,19 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sci-visualization/fityk/fityk-0.9.6.ebuild,v 1.2 2011/02/01 19:24:33 bicatali Exp $
 
-EAPI="3"
+EAPI="4"
 
 WX_GTK_VER="2.9"
 
 PYTHON_DEPEND="python? 2"
 SUPPORT_PYTHON_ABIS="1"
+GITHUB_USER="wojdyr"
+GITTAG="772ddee"
+S="${WORKDIR}/${GITHUB_USER}-${PN}-${GITTAG}"
 
-inherit python wxwidgets autotools git-2
+inherit python wxwidgets autotools
 
 DESCRIPTION="General-purpose nonlinear curve fitting and data analysis"
 HOMEPAGE="http://fityk.nieto.pl/"
-EGIT_REPO_URI="https://github.com/wojdyr/fityk.git"
-EGIT_COMMIT="b5584180e28399bb63172c1cb807c81fb47964d1"
+SRC_URI="https://github.com/${GITHUB_USER}/${PN}/tarball/v${PV} -> ${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -77,7 +79,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
+	emake DESTDIR="${D}" install
 
 	if use python; then
 		installation() {
