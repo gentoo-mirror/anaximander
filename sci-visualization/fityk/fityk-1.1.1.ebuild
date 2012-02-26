@@ -37,6 +37,12 @@ RDEPEND="${CDEPEND}
 
 RESTRICT_PYTHON_ABIS="3.*"
 
+pkg_setup() {
+    if use python; then
+	    python_pkg_setup
+    fi
+}
+
 src_prepare() {
 	eautoreconf
 	has_version "<dev-libs/boost-1.37" && \
