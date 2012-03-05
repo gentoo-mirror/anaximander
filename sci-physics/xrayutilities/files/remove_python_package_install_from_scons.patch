@@ -1,6 +1,6 @@
---- SConstruct.orig	2012-03-02 16:55:48.553161142 +0100
-+++ SConstruct	2012-03-02 16:56:58.713438388 +0100
-@@ -67,12 +67,6 @@
+--- SConstruct.orig	2012-03-05 21:59:49.532174007 +0100
++++ SConstruct	2012-03-05 22:00:14.212174572 +0100
+@@ -77,12 +77,6 @@
      fid.write("clib_path = %s\n" %libpath)
      fid.close()
      print("create clib_path.conf file (libfile: %s)"%(libpath))
@@ -8,7 +8,7 @@
 -    if "win" in os.sys.platform:
 -        python_installer = subprocess.Popen("python setup.py install --prefix="+env['PREFIX'],shell=True)
 -    else:
--        python_installer = subprocess.Popen("python setup.py install --prefix="+env['DESTDIRPREFIX'],shell=True)
+-        python_installer = subprocess.Popen("python setup.py install --root=%s --prefix=%s" %(env['DESTDIR'],env['PREFIX']),shell=True)
 -    python_installer.wait()
  
  ############################
