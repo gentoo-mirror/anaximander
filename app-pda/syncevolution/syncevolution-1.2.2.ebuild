@@ -5,7 +5,7 @@
 # /var/cvsroot/gentoo-x86/app-pda/syncevolution/syncevolution-1.1.1.ebuild,v 1.3
 # 2011/03/21 21:56:01 nirbheek Exp $
 
-EAPI=2
+EAPI=4
 
 inherit eutils gnome2
 
@@ -45,6 +45,8 @@ DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.37.1"
 
 DOCS="README NEWS AUTHORS HACKING"
+
+REQUIRED_USE="xmlrpc? ( sqlite )"
 
 src_prepare() {
 	epatch "${FILESDIR}/fix-akonadi-build.patch"
