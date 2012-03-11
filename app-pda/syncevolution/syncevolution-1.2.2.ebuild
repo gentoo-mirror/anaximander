@@ -48,6 +48,11 @@ DOCS="README NEWS AUTHORS HACKING"
 
 src_prepare() {
 	epatch "${FILESDIR}/fix-akonadi-build.patch"
+	# patches from bugs.meego.com #20370
+	epatch "${FILESDIR}/do-not-check-for-or-use-gtk-builder-convert.patch"
+	epatch "${FILESDIR}/do-not-check-for-libglade-because-it-is-not-used.patch"
+	# additional patch to remove the usage and check for gtk-builder-convert
+	epatch "${FILESDIR}/do-not-use-gtk-builder-convert.patch"
 }
 
 pkg_setup() {
@@ -62,7 +67,7 @@ pkg_setup() {
 		$(use_enable keyring gnome-keyring)
 		$(use_enable kwallet)
 		$(use_enable xmlrpc)
-		$(use_enable xmlrpc sqlite3)
+		$(use_enable xmlrpc sqlite)
 		$(use_enable xmlrpc file)"
 	if use bluetooth; then
 		G2CONF="${G2CONF}

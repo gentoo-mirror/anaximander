@@ -1,0 +1,39 @@
+From 777795569a39f1cb8440d225e87af53ca7e69f81 Mon Sep 17 00:00:00 2001
+From: Murray Cumming <murrayc@murrayc.com>
+Date: Thu, 30 Jun 2011 11:12:53 +0200
+Subject: [PATCH] Do not check for libglade because it is not used.
+
+---
+ HACKING          |    2 +-
+ configure-pre.in |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/HACKING b/HACKING
+index 139a056..19c9d6d 100644
+--- a/HACKING
++++ b/HACKING
+@@ -42,7 +42,7 @@ For the GUI and its D-Bus based service backend:
+    apt-get install libdbus-glib-1-dev \
+                    xsltproc \
+                    libglib2.0-dev \
+-                   libgtk2.0-dev libglade2-dev \
++                   libgtk2.0-dev \
+                    libgnome-keyring-dev \
+                    libgconf2-dev libgnomevfs2-dev
+ 
+diff --git a/configure-pre.in b/configure-pre.in
+index dcefdde..009620e 100644
+--- a/configure-pre.in
++++ b/configure-pre.in
+@@ -559,7 +559,7 @@ if test $enable_gui != "no"; then
+     AC_PATH_PROG(DBUS_BINDING_TOOL, dbus-binding-tool)
+     AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
+ 
+-    gui_modules="glib-2.0 dbus-glib-1 >= 0.60 gtk+-2.0 libglade-2.0 gio-2.0"
++    gui_modules="glib-2.0 dbus-glib-1 >= 0.60 gtk+-2.0 gio-2.0"
+     if test $enable_gui = "moblin"; then
+         AC_DEFINE(USE_MOBLIN_UX, 1, [Use Moblin UI widgets])
+     fi
+-- 
+1.7.4.1
+
