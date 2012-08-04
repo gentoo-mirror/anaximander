@@ -26,7 +26,9 @@ RDEPEND="
 	dev-python/pygobject:2
 	dev-python/pygtk
 	dev-python/pyxdg
-	dev-python/simplejson"
+	dev-python/simplejson
+	dev-python/liblarch
+	dev-python/liblarch-gtk"
 DEPEND="${RDEPEND}"
 
 pkg_preinst() {
