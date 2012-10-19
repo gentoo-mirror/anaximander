@@ -18,7 +18,11 @@ IUSE=""
 
 DEPEND="dev-python/numpy
         sci-libs/scipy
-        dev-python/pytables"
+        dev-python/pytables
+		app-text/texlive
+		dev-texlive/texlive-latexextra
+		dev-texlive/texlive-mathextra
+		dev-texlive/texlive-science"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
