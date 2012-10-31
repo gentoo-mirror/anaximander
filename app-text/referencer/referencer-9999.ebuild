@@ -8,8 +8,9 @@ inherit fdo-mime bzr eutils
 
 DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
 HOMEPAGE="http://icculus.org/referencer/"
-EBZR_REPO_URI="lp:~${PN}-devs/${PN}/amrlima_gio_port"
+EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
 EBZR_BOOTSTRAP="autogen.sh"
+EBZR_PATCHES="${FILESDIR}/${PN}-desktop-file-validate.patch"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,8 +24,6 @@ fi
 
 RDEPEND=">=app-text/poppler-0.12.3-r3
 	>=dev-cpp/gtkmm-2.8
-	>=dev-cpp/libgnomeuimm-2.14.0
-	>=dev-cpp/gnome-vfsmm-2.14.0
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
 	dev-libs/boost
@@ -37,6 +36,7 @@ DEPEND="${RDEPEND}
 	dev-perl/libxml-perl
 	dev-util/intltool
 	app-text/rarian"
+
 
 src_configure() {
 	econf --disable-update-mime-database --enable-python
