@@ -26,12 +26,13 @@ RDEPEND=">=app-text/poppler-0.12.3-r3
 	>=dev-cpp/gtkmm-2.8
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
+	>=dev-cpp/gtkmm-utils-0.4.1
 	dev-libs/boost
 	dev-lang/python"
 
 DEPEND="${RDEPEND}
 	>=app-text/gnome-doc-utils-0.3.2
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	>=dev-lang/perl-5.8.1
 	dev-perl/libxml-perl
 	dev-util/intltool
