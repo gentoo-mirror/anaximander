@@ -2,9 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="5"
 
-inherit fdo-mime bzr eutils
+PYTHON_DEPEND="2:2.7"
+
+inherit fdo-mime bzr eutils python
 
 DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
 HOMEPAGE="http://icculus.org/referencer/"
@@ -27,8 +29,7 @@ RDEPEND=">=app-text/poppler-0.12.3-r3
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
 	>=dev-cpp/gtkmm-utils-0.4.1
-	dev-libs/boost
-	dev-lang/python"
+	dev-libs/boost"
 
 DEPEND="${RDEPEND}
 	>=app-text/gnome-doc-utils-0.3.2
@@ -38,14 +39,18 @@ DEPEND="${RDEPEND}
 	dev-util/intltool
 	app-text/rarian"
 
+pkg_setup() {
+	    python_set_active_version 2.7
+		python_pkg_setup
+}
+
+src_prepare () {
+	epatch "${FILESDIR}/${PN}-desktop-file-validate.patch"
+	python_convert_shebangs -r 2.7 plugins
+}
 
 src_configure() {
 	econf --disable-update-mime-database --enable-python
-}
-
-src_install() {
-	emake install DESTDIR="${D}" || die "emake failed"
-	dodoc AUTHORS ChangeLog NEWS README TODO || die
 }
 
 pkg_postinst() {
