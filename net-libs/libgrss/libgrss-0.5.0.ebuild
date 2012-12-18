@@ -14,7 +14,7 @@ SRC_URI="http://gtk.mplat.es/libgrss/tarballs/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS=""
 IUSE="doc examples"
 
 RDEPEND=">=dev-libs/glib-2.22.2:2
