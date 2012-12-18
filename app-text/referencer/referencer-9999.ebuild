@@ -45,7 +45,7 @@ pkg_setup() {
 }
 
 src_prepare () {
-	epatch "${FILESDIR}/${PN}-desktop-file-validate.patch"
+	bzr_bootstrap
 	python_convert_shebangs -r 2.7 plugins
 }
 
