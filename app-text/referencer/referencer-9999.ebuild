@@ -12,7 +12,6 @@ DESCRIPTION="Gnome application to organise documents or references, and to gener
 HOMEPAGE="http://icculus.org/referencer/"
 EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
 EBZR_BOOTSTRAP="autogen.sh"
-EBZR_PATCHES="${FILESDIR}/${PN}-desktop-file-validate.patch"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -40,7 +39,7 @@ DEPEND="${RDEPEND}
 	app-text/rarian"
 
 pkg_setup() {
-	    python_set_active_version 2.7
+	    python_set_active_version 2
 		python_pkg_setup
 }
 
