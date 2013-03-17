@@ -23,7 +23,7 @@ else
 fi
 
 
-RDEPEND=">=app-text/poppler-0.12.3-r3
+RDEPEND=">=app-text/poppler-0.12.3-r3:=[cairo]
 	>=dev-cpp/gtkmm-2.8
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
