@@ -6,15 +6,15 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_3} )
 
-inherit eutils distutils-r1 git-2
+inherit eutils distutils-r1
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
 HOMEPAGE="http://sourceforge.net/projects/xrayutilities"
-EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="openmp"
 
 DEPEND="dev-python/numpy
