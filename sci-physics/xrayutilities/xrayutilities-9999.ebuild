@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_3} )
 
-inherit eutils distutils-r1 git-2
+inherit distutils-r1 git-2
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
 HOMEPAGE="http://sourceforge.net/projects/xrayutilities"
@@ -15,7 +15,7 @@ EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="openmp"
+IUSE="openmp test"
 
 DEPEND="dev-python/numpy
         sci-libs/scipy
@@ -29,4 +29,9 @@ python_configure_all() {
 	if ! use openmp; then
 		mydistutilsargs=( --without-openmp )
 	fi
+}
+
+python_test() {
+	cd xrayutilities/tests
+	$PYTHON -m unittest discover || die
 }

@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_3} )
 
-inherit eutils distutils-r1
+inherit distutils-r1
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
 HOMEPAGE="http://sourceforge.net/projects/xrayutilities"
