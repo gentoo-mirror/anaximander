@@ -4,9 +4,9 @@
 
 EAPI="5"
 
-PYTHON_DEPEND="2:2.7"
+PYTHON_COMPAT=( python2_7 )
 
-inherit fdo-mime bzr eutils python
+inherit fdo-mime bzr eutils python-single-r1
 
 DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
 HOMEPAGE="http://icculus.org/referencer/"
@@ -36,11 +36,6 @@ DEPEND="${RDEPEND}
 	dev-perl/libxml-perl
 	dev-util/intltool
 	app-text/rarian"
-
-pkg_setup() {
-	    python_set_active_version 2
-		python_pkg_setup
-}
 
 src_prepare () {
 	bzr_bootstrap

@@ -4,7 +4,8 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_3} )
+PYTHON_COMPAT=( python2_7 )
+EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
 
 inherit distutils-r1 git-2
 
