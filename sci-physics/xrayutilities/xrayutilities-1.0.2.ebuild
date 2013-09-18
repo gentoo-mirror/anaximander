@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_2 )
 
 inherit distutils-r1
 
@@ -24,6 +24,14 @@ DEPEND="dev-python/numpy
 RDEPEND="${DEPEND}"
 
 DOCS=(README.txt CHANGES.txt xrayutilities.pdf)
+EXAMPLES=( examples/. )
+
+python_prepare() {
+	distutils-r1_python_prepare
+    if [[ ${EPYTHON} == python3* ]]; then
+		epatch "${FILESDIR}/${P}-python3.patch"
+	fi
+}
 
 python_configure_all() {
     if ! use openmp; then
@@ -34,4 +42,9 @@ python_configure_all() {
 python_test() {
     cd xrayutilities/tests
     $PYTHON -m unittest discover || die
+}
+
+src_install() {
+	distutils-r1_src_install
+	doinfo doc/xrayutilities.info 
 }
