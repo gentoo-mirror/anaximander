@@ -63,7 +63,7 @@
              if k not in ['wl','deg','UB','delta']:
                  raise Exception("unknown keyword argument given: allowed are 'delta': angle offsets, 'wl': x-ray wavelength, 'UB': orientation/orthonormalization matrix, 'deg': flag to tell if angles are in degrees")
          
-@@ -475,12 +475,12 @@
+@@ -478,12 +478,12 @@
            roi:           region of interest for the detector pixels; e.g. [100,900]
          """
  
@@ -78,7 +78,7 @@
              raise InputError("QConversion: incorrect detector direction type or syntax (%s)" %repr(detectorDir))
          if not circleSyntax.search(detectorDir):
              raise InputError("QConversion: incorrect detector direction syntax (%s)" %detectorDir)
-@@ -554,7 +554,7 @@
+@@ -557,7 +557,7 @@
          if not self._linear_init:
              raise Exception("QConversion: linear detector not initialized -> call Ang2Q.init_linear(...)")
          
@@ -87,7 +87,7 @@
              if k not in ['wl','deg','UB','delta','Nav','roi']:
                  raise Exception("unknown keyword argument given: allowed are 'delta': angle offsets, 'wl': x-ray wavelength, 'UB': orientation/orthonormalization matrix, 'deg': flag to tell if angles are in degrees, 'Nav': number of channels for block-averaging, 'roi': region of interest")
  
-@@ -699,17 +699,17 @@
+@@ -702,17 +702,17 @@
            roi:            region of interest for the detector pixels; e.g. [100,900,200,800]
          """
  
@@ -108,7 +108,7 @@
              raise InputError("QConversion: incorrect detector direction2 type or syntax (%s)" %repr(detectorDir2))
          if not circleSyntax.search(detectorDir2):
              raise InputError("QConversion: incorrect detector direction2 syntax (%s)" %detectorDir2)
-@@ -801,7 +801,7 @@
+@@ -804,7 +804,7 @@
          if not self._area_init:
              raise Exception("QConversion: area detector not initialized -> call Ang2Q.init_area(...)")
          
@@ -117,7 +117,7 @@
              if k not in ['wl','deg','UB','delta','Nav','roi']:
                  raise Exception("unknown keyword argument given: allowed are 'delta': angle offsets, 'wl': x-ray wavelength, 'UB': orientation/orthonormalization matrix, 'deg': flag to tell if angles are in degrees, 'Nav': number of channels for block-averaging, 'roi': region of interest")
  
-@@ -953,7 +953,7 @@
+@@ -956,7 +956,7 @@
                       the en keyword overrulls the wl keyword
          """
  
@@ -126,7 +126,7 @@
              if k not in ['qconv','wl','en']:
                  raise Exception("unknown keyword argument given: allowed are 'en': for x-ray energy, 'wl': x-ray wavelength, 'qconv': reciprocal space conversion.")
  
-@@ -1118,7 +1118,7 @@
+@@ -1121,7 +1121,7 @@
  
          """
  
@@ -135,7 +135,7 @@
              if k not in ['U','B','mat','dettype']:
                  raise Exception("unknown keyword argument given: allowed are 'B': orthonormalization matrix, 'U': orientation matrix, 'mat': material object, 'dettype': string with detector type")
          
-@@ -1325,7 +1325,7 @@
+@@ -1328,7 +1328,7 @@
           pdi_d: offset ot the diffracted beam from the scattering plane due to refraction
          """
  
@@ -144,7 +144,7 @@
              if k not in ['trans','deg','geometry','refrac','mat','fi','fd','full_output']:
                  raise Exception("unknown keyword argument given: see documentation for details")
          
-@@ -1586,7 +1586,7 @@
+@@ -1589,7 +1589,7 @@
           twotheta:   scattering angle (detector)
          """
  
@@ -153,7 +153,7 @@
              if k not in ['trans','deg']:
                  raise Exception("unknown keyword argument given: allowed are 'trans': coordinate transformation flag, 'deg': degree-flag")
          
-@@ -1730,7 +1730,7 @@
+@@ -1733,7 +1733,7 @@
           beta:       exit angle from surface (at the moment always 0)
          """
  
@@ -162,7 +162,7 @@
              if k not in ['trans','deg']:
                  raise Exception("unknown keyword argument given: allowed are 'trans': coordinate transformation flag, 'deg': degree-flag")
          
-@@ -1891,7 +1891,7 @@
+@@ -1894,7 +1894,7 @@
           gamma:    scattering angle
          """
  

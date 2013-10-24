@@ -43,8 +43,3 @@ python_test() {
     cd xrayutilities/tests
     $PYTHON -m unittest discover || die
 }
-
-src_install() {
-	distutils-r1_src_install
-	doinfo doc/xrayutilities.info 
-}
