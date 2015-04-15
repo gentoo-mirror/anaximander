@@ -27,7 +27,7 @@ RDEPEND=">=app-text/poppler-0.12.3-r3:=[cairo]
 	>=dev-cpp/gtkmm-2.8
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
-	dev-libs/boost"
+	>=dev-libs/boost-1.52.0-r4"
 
 DEPEND="${RDEPEND}
 	>=app-text/gnome-doc-utils-0.3.2
@@ -39,7 +39,7 @@ DEPEND="${RDEPEND}
 
 src_prepare () {
 	bzr_bootstrap
-	python_convert_shebangs -r 2.7 plugins
+	python_fix_shebang plugins
 }
 
 src_configure() {

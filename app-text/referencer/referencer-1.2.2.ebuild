@@ -4,9 +4,9 @@
 
 EAPI="5"
 
-PYTHON_DEPEND="2:2.7"
+PYTHON_COMPAT=( python2_7 )
 
-inherit fdo-mime eutils python
+inherit fdo-mime eutils python-single-r1
 
 DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
 HOMEPAGE="https://launchpad.net/referencer"
@@ -17,7 +17,7 @@ SLOT="0"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=app-text/poppler-0.12.3-r3[cairo]
+RDEPEND=">=app-text/poppler-0.12.3-r3:=[cairo]
 	>=dev-cpp/gtkmm-2.8
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
@@ -31,13 +31,8 @@ DEPEND="${RDEPEND}
 	dev-util/intltool
 	app-text/rarian"
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
-
 src_prepare () {
-	python_convert_shebangs -r 2.7 plugins
+	python_fix_shebang plugins
 }
 
 src_configure() {
