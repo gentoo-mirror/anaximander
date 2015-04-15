@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -22,9 +22,8 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-
 RDEPEND=">=app-text/poppler-0.12.3-r3:=[cairo]
-	>=dev-cpp/gtkmm-2.8
+	>=dev-cpp/gtkmm-2.8:*
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/gconfmm-2.14.0
 	>=dev-libs/boost-1.52.0-r4"
