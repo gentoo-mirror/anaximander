@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_2 )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
 
 inherit distutils-r1 git-2 eutils
@@ -19,20 +19,13 @@ KEYWORDS=""
 IUSE="openmp test"
 
 DEPEND="dev-python/numpy
-        sci-libs/scipy
-        dev-python/pytables
-		>sys-devel/gcc-4.2[openmp?]"
+	sci-libs/scipy
+	dev-python/pytables
+	>sys-devel/gcc-4.2:*[openmp?]"
 RDEPEND="${DEPEND}"
 
 DOCS=( README.txt CHANGES.txt xrayutilities.pdf )
 EXAMPLES=( examples/. )
-
-python_prepare() {
-	distutils-r1_python_prepare
-    if [[ ${EPYTHON} == python3* ]]; then
-		epatch "${FILESDIR}/${P}-python3.patch"
-	fi
-}
 
 python_configure_all() {
 	if ! use openmp; then
