@@ -1,0 +1,54 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI="5"
+
+PYTHON_COMPAT=( python2_7 )
+
+inherit fdo-mime bzr eutils python-single-r1
+
+DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
+HOMEPAGE="http://icculus.org/referencer/"
+EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
+EBZR_BOOTSTRAP="autogen.sh"
+
+LICENSE="GPL-2"
+SLOT="0"
+IUSE=""
+if [[ ${PV} = 9999 ]]; then
+	KEYWORDS=""
+else
+	KEYWORDS="~amd64 ~x86"
+fi
+
+RDEPEND=">=app-text/poppler-0.12.3-r3:=[cairo]
+	>=dev-cpp/gtkmm-2.8:*
+	>=dev-cpp/libglademm-2.6.0
+	>=dev-cpp/gconfmm-2.14.0
+	>=dev-libs/boost-1.52.0-r4"
+
+DEPEND="${RDEPEND}
+	>=app-text/gnome-doc-utils-0.3.2
+	virtual/pkgconfig
+	>=dev-lang/perl-5.8.1
+	dev-perl/libxml-perl
+	dev-util/intltool
+	app-text/rarian"
+
+src_prepare () {
+	bzr_bootstrap
+	python_fix_shebang plugins
+}
+
+src_configure() {
+	econf --disable-update-mime-database --enable-python
+}
+
+pkg_postinst() {
+	fdo-mime_mime_database_update
+}
+
+pkg_postrm() {
+	fdo-mime_mime_database_update
+}

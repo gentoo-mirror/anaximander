@@ -1,0 +1,16 @@
+diff -urN a/systemd/tlsdated.service b/systemd/tlsdated.service
+--- a/systemd/tlsdated.service	2014-10-26 16:03:23.000000000 +0100
++++ b/systemd/tlsdated.service	2015-04-17 09:34:12.722988776 +0200
+@@ -5,6 +5,9 @@
+ [Service]
+ Type=simple
+ EnvironmentFile=/etc/default/tlsdated
+-ExecStart=/usr/sbin/tlsdated ${DAEMON_OPTS}
+-ExecReload=/bin/kill -HUP ${MAINPID}
+-ExecStop=/bin/kill -INT ${MAINPID}
++ExecStart=/usr/sbin/tlsdated $DAEMON_OPTS
++ExecReload=/bin/kill -HUP $MAINPID
++ExecStop=/bin/kill -INT $MAINPID
++
++[Install]
++WantedBy=multi-user.target
