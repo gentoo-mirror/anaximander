@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure postinst postrm prepare setup unpack
+DEPEND=>=app-text/poppler-0.12.3-r3:=[cairo] >=dev-cpp/gtkmm-2.8:* >=dev-cpp/libglademm-2.6.0 >=dev-cpp/gconfmm-2.14.0 >=dev-libs/boost-1.52.0-r4 >=app-text/gnome-doc-utils-0.3.2 virtual/pkgconfig >=dev-lang/perl-5.8.1 dev-perl/libxml-perl dev-util/intltool app-text/rarian >=dev-vcs/bzr-2.0.1
+DESCRIPTION=Gnome application to organise documents or references, and to generate BibTeX bibliography files
+EAPI=5
+HOMEPAGE=http://icculus.org/referencer/
+IUSE=python_targets_python2_7
+LICENSE=GPL-2
+RDEPEND=>=app-text/poppler-0.12.3-r3:=[cairo] >=dev-cpp/gtkmm-2.8:* >=dev-cpp/libglademm-2.6.0 >=dev-cpp/gconfmm-2.14.0 >=dev-libs/boost-1.52.0-r4
+SLOT=0
+_eclass_exported_funcs=pkg_postrm:- pkg_postinst:- pkg_setup:python-single-r1 src_unpack:bzr src_prepare:- src_configure:-
+_eclasses_=bzr	745bed5705ae699c707ba26ca9e8929a	eutils	f20548a2f7b0128068388cd2ec26708a	fdo-mime	92d07846ea8ea54172f8c0112a47ae3d	multilib	3972ca401cf7dbb430df9995f5d8d580	python-single-r1	f0877a50e1277a64cd4fe5855250102b	python-utils-r1	7d52f592fc09a002ea150d69507b5bad	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=160fb84d0eb3456250d22599c1b0fb41
