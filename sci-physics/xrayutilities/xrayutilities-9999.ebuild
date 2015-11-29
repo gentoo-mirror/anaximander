@@ -20,7 +20,7 @@ IUSE="openmp test"
 
 DEPEND="dev-python/numpy
 	sci-libs/scipy
-	dev-python/pytables
+	dev-python/h5py
 	>sys-devel/gcc-4.2:*[openmp?]"
 RDEPEND="${DEPEND}"
 
