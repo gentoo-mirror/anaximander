@@ -6,7 +6,7 @@ EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit fdo-mime eutils python-single-r1
+inherit fdo-mime eutils python-single-r1 flag-o-matic
 
 DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
 HOMEPAGE="https://launchpad.net/referencer"
@@ -36,6 +36,7 @@ src_prepare () {
 }
 
 src_configure() {
+	append-cxxflags -std=gnu++11
 	econf --disable-update-mime-database --enable-python
 }
 
