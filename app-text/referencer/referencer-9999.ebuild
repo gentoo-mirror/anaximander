@@ -6,7 +6,7 @@ EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit fdo-mime bzr eutils python-single-r1
+inherit fdo-mime bzr eutils python-single-r1 flag-o-matic
 
 DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
 HOMEPAGE="http://icculus.org/referencer/"
@@ -37,11 +37,13 @@ DEPEND="${RDEPEND}
 	app-text/rarian"
 
 src_prepare () {
+	gnome-doc-prepare --force
 	bzr_bootstrap
 	python_fix_shebang plugins
 }
 
 src_configure() {
+	append-cxxflags -std=gnu++11
 	econf --disable-update-mime-database --enable-python
 }
 
