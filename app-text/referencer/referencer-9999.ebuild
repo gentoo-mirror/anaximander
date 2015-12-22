@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit fdo-mime bzr eutils python-single-r1 flag-o-matic
 
-DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
+DESCRIPTION="Application to organise documents or references, and to generate BibTeX files"
 HOMEPAGE="http://icculus.org/referencer/"
 EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
 EBZR_BOOTSTRAP="autogen.sh"

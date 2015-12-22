@@ -8,9 +8,9 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit fdo-mime eutils python-single-r1 flag-o-matic
 
-DESCRIPTION="Gnome application to organise documents or references, and to generate BibTeX bibliography files"
+DESCRIPTION="Application to organise documents or references, and to generate BibTeX files"
 HOMEPAGE="https://launchpad.net/referencer"
-SRC_URI="https://launchpad.net/${PN}/1./${PV}/+download/$P.tar.gz"
+SRC_URI="https://launchpad.net/${PN}/1./${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
