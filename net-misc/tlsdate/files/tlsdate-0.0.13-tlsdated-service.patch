@@ -1,6 +1,10 @@
-diff -urN a/systemd/tlsdated.service b/systemd/tlsdated.service
---- a/systemd/tlsdated.service	2014-10-26 16:03:23.000000000 +0100
-+++ b/systemd/tlsdated.service	2015-04-17 09:34:12.722988776 +0200
+Fixes systemd unit file, see upstream bug [1] and Gentoo bug [2]
+
+[1] https://bugs.gentoo.org/533380
+[2] https://github.com/ioerror/tlsdate/pull/162
+
+--- a/systemd/tlsdated.service
++++ b/systemd/tlsdated.service
 @@ -5,6 +5,9 @@
  [Service]
  Type=simple
