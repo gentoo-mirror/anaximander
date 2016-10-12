@@ -1,31 +1,31 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
 EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
 
-inherit distutils-r1 git-2 eutils
+inherit distutils-r1 git-r3 eutils
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
-HOMEPAGE="http://sourceforge.net/projects/xrayutilities"
-EGIT_REPO_URI="git://git.code.sf.net/p/xrayutilities/code"
+HOMEPAGE="http://xrayutilities.sourceforce.org"
+EGIT_REPO_URI="https://github.com/dkriegner/xrayutilities.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="openmp test"
 
-DEPEND="dev-python/numpy
-	sci-libs/scipy
-	dev-python/h5py
+RDEPEND=">=dev-python/numpy-1.8
+	>=sci-libs/scipy-0.13.0
+	dev-python/h5py"
+DEPEND="${RDEPEND}
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	>sys-devel/gcc-4.2:*[openmp?]"
-RDEPEND="${DEPEND}"
 
-DOCS=( README.txt CHANGES.txt xrayutilities.pdf )
-EXAMPLES=( examples/. )
+DOCS=( README.md CHANGES.txt xrayutilities.pdf )
 
 python_configure_all() {
 	if ! use openmp; then
@@ -34,6 +34,5 @@ python_configure_all() {
 }
 
 python_test() {
-	cd xrayutilities/tests
-	$PYTHON -m unittest discover || die
+	$PYTHON setup.py test || die
 }
