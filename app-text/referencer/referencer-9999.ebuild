@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI="6"
 
 PYTHON_COMPAT=( python2_7 )
 
 inherit fdo-mime bzr eutils python-single-r1 flag-o-matic
 
 DESCRIPTION="Application to organise documents or references, and to generate BibTeX files"
-HOMEPAGE="http://icculus.org/referencer/"
+HOMEPAGE="https://launchpad.net/referencer"
 EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
 EBZR_BOOTSTRAP="autogen.sh"
 
@@ -36,7 +36,11 @@ DEPEND="${RDEPEND}
 	dev-util/intltool
 	app-text/rarian"
 
+PATCHES="${FILESDIR}/${PN}-1.2.2-lib_path.patch
+		 ${FILESDIR}/${PN}-${PV}-expj.patch"
+
 src_prepare () {
+	default
 	gnome-doc-prepare --force
 	bzr_bootstrap
 	python_fix_shebang plugins
