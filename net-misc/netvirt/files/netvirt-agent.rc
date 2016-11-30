@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+description="start a daemon to maintain a DynVPN connection"
+
+command="netvirt-agent"
+command_background="true"
+pidfile="/var/run/${SVCNAME}.pid"
+
+depend() {
+	use net
+}
