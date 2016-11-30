@@ -1,0 +1,13 @@
+[Unit]
+Description=Netvirt Agent
+After=network.target
+
+[Service]
+Environment="HOME=/root"
+ExecStart=/usr/bin/netvirt-agent
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
