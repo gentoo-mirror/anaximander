@@ -1,6 +1,5 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI="6"
 
@@ -36,8 +35,7 @@ DEPEND="${RDEPEND}
 	dev-util/intltool
 	app-text/rarian"
 
-PATCHES="${FILESDIR}/${PN}-1.2.2-lib_path.patch
-		 ${FILESDIR}/${PN}-${PV}-expj.patch"
+PATCHES=""
 
 src_prepare () {
 	default
