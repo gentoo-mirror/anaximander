@@ -5,7 +5,7 @@ EAPI="6"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit fdo-mime bzr eutils python-single-r1 flag-o-matic
+inherit xdg-utils bzr eutils python-single-r1 flag-o-matic
 
 DESCRIPTION="Application to organise documents or references, and to generate BibTeX files"
 HOMEPAGE="https://launchpad.net/referencer"
@@ -50,9 +50,11 @@ src_configure() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
 }
