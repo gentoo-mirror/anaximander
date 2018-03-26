@@ -10,7 +10,6 @@ inherit xdg-utils bzr eutils python-single-r1 flag-o-matic
 DESCRIPTION="Application to organise documents or references, and to generate BibTeX files"
 HOMEPAGE="https://launchpad.net/referencer"
 EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
-EBZR_BOOTSTRAP="autogen.sh"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -40,7 +39,7 @@ PATCHES=""
 src_prepare () {
 	default
 	gnome-doc-prepare --force
-	bzr_bootstrap
+	"./autogen.sh" || die "can't execute autogen.sh"
 	python_fix_shebang plugins
 }
 
