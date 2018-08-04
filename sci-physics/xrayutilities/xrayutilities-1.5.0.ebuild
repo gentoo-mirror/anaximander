@@ -1,15 +1,15 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=(python{2_7,3_3,3_4} )
+PYTHON_COMPAT=(python{2_7,3_5,3_6,3_7} )
 
 inherit distutils-r1
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
-HOMEPAGE="http://xrayutilities.sourceforge.net"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+HOMEPAGE="http://xrayutilities.sourceforge.io"
+SRC_URI="mirror://sourceforge/${PN}/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
