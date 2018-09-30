@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+<email>dominik.kriegner@gmail.com</email>
+<name>Dominik Kriegner</name>
+</maintainer>
+<longdescription lang="en">
+Sway is tiling Wayland compositor and a drop-in replacement for the i3 window manager for X11. It works with your existing i3 configuration and supports most of i3's features, plus a few extras.
+</longdescription>
+<use>
+<flag name="fish-completion">Enable fish completion support</flag>
+<flag name="xwayland">Enable XWayland application support</flag>
+<flag name="wallpapers">Install sway's default wallpaper image</flag>
+</use>
+</pkgmetadata>
