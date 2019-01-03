@@ -5,7 +5,7 @@
 
 description="start a daemon to maintain a DynVPN connection"
 
-command="netvirt-agent"
+command="netvirt-agent2"
 command_background="true"
 pidfile="/var/run/${SVCNAME}.pid"
 

@@ -16,25 +16,19 @@ KEYWORDS=""
 IUSE="gui"
 
 RDEPEND="sys-libs/libcap
-		 dev-libs/libconfig
-		 gui? ( dev-qt/qtgui:4
-			   dev-qt/qtdeclarative:4 )"
+		dev-libs/libconfig
+		gui? ( dev-qt/qtgui:4
+		dev-qt/qtdeclarative:4 )"
 DEPEND="${RDEPEND}
-	 	dev-util/scons
+		dev-util/scons
 		dev-util/cmake"
 
-PATCHES=( "${FILESDIR}"/netvirt-system-libconfig.patch )
-
 src_configure() {
-	local mycmakeargs=( -DWITH_GUI=$(usex gui)
-					    -DCMAKE_LIBRARY_PATH=/usr/$(get_libdir) )
+	local mycmakeargs=( -DWITH_GUI=$(usex gui) )
 	cmake-utils_src_configure
 }
 
 src_compile() {
-	cd udt4
-	emake
-	cd ..
 	cd tapcfg
 	scons
 	cd ..
