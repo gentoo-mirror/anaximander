@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -18,7 +18,7 @@ IUSE="gui"
 RDEPEND="sys-libs/libcap
 		dev-libs/libconfig
 		gui? ( dev-qt/qtgui:4
-		dev-qt/qtdeclarative:4 )"
+			dev-qt/qtdeclarative:4 )"
 DEPEND="${RDEPEND}
 		dev-util/scons
 		dev-util/cmake"
@@ -39,4 +39,10 @@ src_install() {
 	cmake-utils_src_install
 	systemd_newunit "${FILESDIR}"/netvirt-agent.service netvirt-agent.service
 	newinitd "${FILESDIR}"/netvirt-agent.rc netvirt-agent
+}
+
+pkg_postinst() {
+	elog "Carefully read https://doc.dynvpn.com to get started. In particular"
+	elog "you will have to provision a network using netvirt-agent2 -k ... and"
+	elog "edit the init scripts to connect to the right network."
 }
