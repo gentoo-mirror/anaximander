@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Environment="HOME=/root"
-ExecStart=/usr/bin/netvirt-agent2
+ExecStart=/usr/bin/netvirt-agent2 -c NETWORKNAME
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
