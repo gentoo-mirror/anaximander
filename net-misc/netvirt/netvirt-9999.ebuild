@@ -17,6 +17,13 @@ IUSE="gui"
 
 RDEPEND="sys-libs/libcap
 		dev-libs/libconfig
+		dev-libs/openssl:=
+		dev-libs/jansson
+		dev-libs/libevent
+		net-nds/openldap
+		net-misc/curl[ssl]
+		sys-libs/zlib
+		sys-libs/glibc
 		gui? ( dev-qt/qtgui:4
 			dev-qt/qtdeclarative:4 )"
 DEPEND="${RDEPEND}
