@@ -46,10 +46,11 @@ src_install() {
 	cmake-utils_src_install
 	systemd_newunit "${FILESDIR}"/netvirt-agent.service netvirt-agent.service
 	newinitd "${FILESDIR}"/netvirt-agent.rc netvirt-agent
+	newconfd "${FILESDIR}"/netvirt-agent.conf netvirt-agent
 }
 
 pkg_postinst() {
 	elog "Carefully read https://doc.dynvpn.com to get started. In particular"
 	elog "you will have to provision a network using netvirt-agent2 -k ... and"
-	elog "edit the init scripts to connect to the right network."
+	elog "edit the config file in /etc/conf.d/netvirt-agent"
 }
