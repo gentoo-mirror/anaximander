@@ -4,7 +4,8 @@ After=network.target
 
 [Service]
 Environment="HOME=/root"
-ExecStart=/usr/bin/netvirt-agent2 -c NETWORKNAME
+EnvironmentFile=-/etc/conf.d/netvirt-agent
+ExecStart=/usr/bin/netvirt-agent2 -c ${NETVIRT_NETWORK_NAME}
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
