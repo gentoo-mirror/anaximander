@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit xdg-utils bzr eutils python-single-r1 flag-o-matic
+inherit xdg gnome2-utils bzr eutils python-single-r1 flag-o-matic
 
 DESCRIPTION="Application to organise documents or references, and to generate BibTeX files"
 HOMEPAGE="https://launchpad.net/referencer"
@@ -13,7 +13,7 @@ EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="test"
 if [[ ${PV} = 9999 ]]; then
 	KEYWORDS=""
 else
@@ -32,9 +32,10 @@ DEPEND="${RDEPEND}
 	>=dev-lang/perl-5.8.1
 	dev-perl/libxml-perl
 	dev-util/intltool
-	app-text/rarian"
-
-PATCHES=""
+	app-text/rarian
+	test? ( app-text/docbook-xml-dtd:4.1.2
+			app-text/docbook-xml-dtd:4.5
+			app-text/scrollkeeper-dtd:1.0 )"
 
 src_prepare () {
 	default
@@ -49,11 +50,11 @@ src_configure() {
 }
 
 pkg_postinst() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
+	xdg_pkg_postinst
+	gnome2_icon_cache_update
 }
 
 pkg_postrm() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
+	xdg_pkg_postrm
+	gnome2_icon_cache_update
 }
