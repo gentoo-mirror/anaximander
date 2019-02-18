@@ -14,6 +14,7 @@ EBZR_REPO_URI="lp:~${PN}-devs/${PN}/trunk"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="test"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 if [[ ${PV} = 9999 ]]; then
 	KEYWORDS=""
 else
