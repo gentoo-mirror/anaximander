@@ -50,7 +50,7 @@ src_install() {
 pkg_postinst() {
 	elog "Read https://doc.netvfy.com to get started. In particular"
 	elog "you will have to provision a network using netvfy-agent -k ... and"
-	elog "edit the config file in /etc/conf.d/netvirt-agent (OpenRC) or "
-	elog "/etc/systemd/system/netvfy (systemd) and enable the corresponding"
-	elog "service"
+	elog "edit the config file /etc/conf.d/netvfy-agent (OpenRC) or the"
+	elog "settings in /etc/systemd/system/netvfy-agent.service.d/ (systemd)"
+	elog "and enable the corresponding netvfy-agent service"
 }
