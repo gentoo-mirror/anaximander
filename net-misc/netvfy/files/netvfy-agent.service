@@ -1,0 +1,12 @@
+[Unit]
+Description=Netvfy Agent
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/netvfy-agent -c ${NETWORK_NAME}
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
