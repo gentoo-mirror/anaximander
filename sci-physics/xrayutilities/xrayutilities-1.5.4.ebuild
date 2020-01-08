@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,18 +9,19 @@ inherit distutils-r1
 
 DESCRIPTION="package with useful scripts for X-ray diffraction physicists"
 HOMEPAGE="http://xrayutilities.sourceforge.io"
-SRC_URI="mirror://sourceforge/${PN}/v${PV}/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="openmp test"
 
-DEPEND=">=dev-python/numpy-1.8
+DEPEND=">=dev-python/numpy-1.9
 	>=sci-libs/scipy-0.13.0
 	dev-python/h5py
+	dev-python/setuptools[${PYTHON_USEDEP}]"
+RDEPEND="${DEPEND}
 	>sys-devel/gcc-4.2:*[openmp?]"
-RDEPEND="${DEPEND}"
 
 DOCS=( README.md CHANGES.txt xrayutilities.pdf )
 
