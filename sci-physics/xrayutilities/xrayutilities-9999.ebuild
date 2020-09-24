@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_5,3_6,3_7,3_8} )
+PYTHON_COMPAT=( python{3_6,3_7,3_8,3_9} )
 
 inherit distutils-r1 git-r3 eutils
 
@@ -18,8 +18,7 @@ IUSE="openmp test"
 
 RDEPEND=">=dev-python/numpy-1.9
 	>=sci-libs/scipy-0.13.0
-	dev-python/h5py
-	dev-python/setuptools[${PYTHON_USEDEP}]"
+	dev-python/h5py"
 DEPEND="${RDEPEND}
 	>sys-devel/gcc-4.2:*[openmp?]"
 
