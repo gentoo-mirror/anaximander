@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="openmp test"
 
 RDEPEND=">=dev-python/numpy-1.9
-	>=sci-libs/scipy-0.13.0
+	>=dev-python/scipy-0.13.0
 	dev-python/h5py"
 DEPEND="${RDEPEND}
 	>sys-devel/gcc-4.2:*[openmp?]"
