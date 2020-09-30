@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 IUSE="openmp test"
 
 DEPEND=">=dev-python/numpy-1.9
-	>=sci-libs/scipy-0.13.0
+	>=dev-python/scipy-0.13.0
 	dev-python/h5py
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}
