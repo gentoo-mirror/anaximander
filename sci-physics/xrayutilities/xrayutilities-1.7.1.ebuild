@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=(python{2_7,3_5,3_6,3_7} )
+PYTHON_COMPAT=(python{3_6,3_7,3_8,3_9} )
 
 inherit distutils-r1
 
@@ -18,12 +18,12 @@ IUSE="openmp test"
 
 DEPEND=">=dev-python/numpy-1.9
 	>=dev-python/scipy-0.13.0
-	dev-python/h5py
-	dev-python/setuptools[${PYTHON_USEDEP}]"
+	dev-python/h5py"
 RDEPEND="${DEPEND}
-	>sys-devel/gcc-4.2:*[openmp?]"
+	>sys-devel/gcc-4.2:*[openmp?]
+	test? ( dev-python/pytest )"
 
-DOCS=( README.md CHANGES.txt xrayutilities.pdf )
+DOCS=( README.md CHANGES.txt )
 
 python_configure_all() {
 	if ! use openmp; then
@@ -32,5 +32,5 @@ python_configure_all() {
 }
 
 python_test() {
-	$PYTHON setup.py test || die
+	py.test -v
 }
