@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>dominik.kriegner@gmail.com</email>
-    <name>Dominik Kriegner</name>
-  </maintainer>
-  <longdescription lang="en">
-    xrayutilities is a python package used to analyze x-ray diffraction data. It
-    can support with performing diffraction experiments and used for common steps
-    in the data analysis. 
-  </longdescription>
+	<maintainer type="person">
+		<email>dominik.kriegner@gmail.com</email>
+		<name>Dominik Kriegner</name>
+	</maintainer>
+	<longdescription lang="en">
+		xrayutilities is a Python package used to analyze and simulate x-ray
+		diffraction data. It can support with performing diffraction experiments
+		and used for common steps in the data analysis.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/dkriegner/xrayutilities/issues/</bugs-to>
+		<remote-id type="github">dkriegner/xrayutilities</remote-id>
+		<doc lang="en">https://xrayutilities.sourceforge.io/</doc>
+	</upstream>
 </pkgmetadata>
