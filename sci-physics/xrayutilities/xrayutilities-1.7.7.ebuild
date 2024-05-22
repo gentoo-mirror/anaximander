@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=(python3_{8..12} )
 
 inherit distutils-r1 pypi
@@ -15,13 +16,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="openmp test"
 
-DEPEND=">=dev-python/numpy-1.9
+DEPEND=">=dev-python/numpy-1.9:=
 	>=dev-python/scipy-0.13.0
 	dev-python/h5py
 	>=dev-python/lmfit-1.0.1"
 RDEPEND="${DEPEND}
 	>sys-devel/gcc-4.2:*[openmp?]
 	test? ( dev-python/pytest )"
+
+RESTRICT="!test? ( test )"
 
 DOCS=( README.md CHANGES.txt )
 

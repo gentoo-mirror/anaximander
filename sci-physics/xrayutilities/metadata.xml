@@ -13,6 +13,7 @@
 	<upstream>
 		<bugs-to>https://github.com/dkriegner/xrayutilities/issues/</bugs-to>
 		<remote-id type="github">dkriegner/xrayutilities</remote-id>
+		<remote-id type="pypi">xrayutilities</remote-id>
 		<doc lang="en">https://xrayutilities.sourceforge.io/</doc>
 	</upstream>
 </pkgmetadata>

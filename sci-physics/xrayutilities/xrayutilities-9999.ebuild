@@ -14,15 +14,16 @@ EGIT_REPO_URI="https://github.com/dkriegner/xrayutilities.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 IUSE="openmp test"
 
-RDEPEND=">=dev-python/numpy-1.9
+RDEPEND=">=dev-python/numpy-1.9:=
 	>=dev-python/scipy-0.13.0
 	dev-python/h5py"
 DEPEND="${RDEPEND}
 	>sys-devel/gcc-4.2:*[openmp?]
 	test? ( dev-python/pytest )"
+
+RESTRICT="!test? ( test )"
 
 DOCS=( README.md CHANGES.txt )
 
